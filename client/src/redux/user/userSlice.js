@@ -1,15 +1,15 @@
-import {createSlice, current} from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     currentUser: null,
     error: null,
     loading: false,
-}
+};
 
 const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers:{
+    reducers: {
         signInStart: (state) =>{
             state.loading = true;
         },
@@ -23,7 +23,7 @@ const userSlice = createSlice({
             state.loading = false;
         }
     }
-})
+});
 
 export const {signInStart,signInSuccess,signInFailure} = userSlice.actions;
 
