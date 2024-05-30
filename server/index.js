@@ -1,5 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
+
 const connectToMongoDB = require("./db/database.connection");
 const User = require("./models/user.model");
 const UserRouter = require("./routes/user.routes");
@@ -9,6 +11,7 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 app.use("/api/user",UserRouter);
 app.use("/api/auth",authRouter);
 
